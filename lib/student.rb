@@ -97,4 +97,16 @@ class Student
       self.new_from_db(row)
     end
   end
+  
+  def 
+  sql = <<-SQL
+    SELECT COUNT(*)
+    FROM students
+    WHERE students.grade = 10
+    LIMIT ?
+    SQL
+    DB[:conn].execute(sql, number).map do |row|
+      self.new_from_db(row)
+    end
+  
 end
